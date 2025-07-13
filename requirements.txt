@@ -1,0 +1,48 @@
+# Flask Web框架
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# HTTP请求库
+requests==2.31.0
+
+# YAML处理
+PyYAML==6.0.1
+
+# 并发处理
+concurrent-futures==3.1.1
+
+# 正则表达式增强
+regex==2023.8.8
+
+# 文件处理
+pathlib==1.0.1
+
+# 日期时间处理
+python-dateutil==2.8.2
+
+# UUID生成
+uuid==1.30
+
+# JSON处理（Python内置，但列出以供参考）
+# json - 内置模块
+
+# 操作系统接口（Python内置）
+# os - 内置模块
+
+# 文件操作（Python内置）
+# shutil - 内置模块
+
+# 正则表达式（Python内置）
+# re - 内置模块
+
+# 线程池（Python内置）
+# threading - 内置模块
+
+# URL解析（Python内置）
+# urllib.parse - 内置模块
+
+# 时间处理（Python内置）
+# time - 内置模块
+
+# 全局模式匹配（Python内置）
+# glob - 内置模块

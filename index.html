@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apifox文档抓取工具 - 一键复刻</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Apifox文档抓取工具 - 一键复刻</h1>
+            <p>一键抓取Apifox接口文档，自动下载MD文档和YAML接口，快速搭建同款接口平台</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="form-group">
+                    <label for="apiUrl">API文档链接:</label>
+                    <input type="url" id="apiUrl" value="https://doubao.apifox.cn/" placeholder="例如: https://doubao.apifox.cn/" required>
+                    <small>请输入完整的API文档基础URL</small>
+                </div>  
+                
+                <button id="startBtn" class="btn-primary">
+                    <span class="btn-text">开始抓取</span>
+                    <span class="btn-loading" style="display: none;">
+                        <span class="spinner"></span>
+                        处理中...
+                    </span>
+                </button>
+            </div>
+
+            <!-- 步骤预览区域 -->
+            <div class="steps-preview">
+                <h3>📋 处理步骤预览</h3>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>🔗 输入链接</h4>
+                            <p>输入完整的API文档基础URL，开始自动化处理流程</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>🤖 程序自动处理</h4>
+                            <p>下载原始数据 → 数据清洗转换 → 最终合并，全自动三阶段处理</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>📥 下载文件</h4>
+                            <p>下载生成的ZIP文件（纯文档）和YAML文件（API规范）</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>📚 最终导入</h4>
+                            <p>将下载的文件导入到Apifox、Postman等工具中使用</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <h3>处理进度</h3>
+                
+                <div class="stage-progress">
+                    <div class="stage" id="stage1">
+                        <div class="stage-icon">📥</div>
+                        <div class="stage-info">
+                            <h4>阶段1: 下载原始数据</h4>
+                            <p class="stage-status">等待中...</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stage" id="stage2">
+                        <div class="stage-icon">🔄</div>
+                        <div class="stage-info">
+                            <h4>阶段2: 数据清洗转换</h4>
+                            <p class="stage-status">等待中...</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stage" id="stage3">
+                        <div class="stage-icon">📋</div>
+                        <div class="stage-info">
+                            <h4>阶段3: 最终合并</h4>
+                            <p class="stage-status">等待中...</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="log-section">
+                    <h4>处理日志</h4>
+                    <div class="log-container" id="logContainer">
+                        <div class="log-entry">等待开始...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h3>✅ 处理完成</h3>
+                <div class="result-info">
+                    <div class="result-item">
+                        <strong>处理文件数:</strong> <span id="processedFiles">0</span>
+                    </div>
+                    <div class="result-item">
+                        <strong>API接口数:</strong> <span id="totalApis">0</span>
+                    </div>
+                    <div class="result-item">
+                        <strong>纯文档数:</strong> <span id="totalDocs">0</span>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <h4>📥 下载文件</h4>
+                    <div class="download-buttons">
+                        <a href="#" id="downloadYamlLink" class="download-btn yaml-btn">
+                            📄 下载 API规范 (YAML)
+                        </a>
+                        <a href="#" id="downloadZipLink" class="download-btn zip-btn">
+                            📦 下载 纯文档 (ZIP)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="import-guide-section">
+                    <h4>📚 第4步：最终导入使用教程</h4>
+                    <div class="guide-container">
+                        <div class="guide-item">
+                            <div class="guide-icon">📄</div>
+                            <div class="guide-content">
+                                <h5>导入 API规范 (YAML)</h5>
+                                <p>将下载的YAML文件导入到以下工具：</p>
+                                <ul>
+                                    <li><strong>Apifox:</strong> 项目设置 → 导入数据 → OpenAPI/Swagger → 选择YAML文件</li>
+                                    <li><strong>Postman:</strong> Import → File → 选择YAML文件 → Import</li>
+                                    <li><strong>Swagger Editor:</strong> File → Import file → 选择YAML文件</li>
+                                    <li><strong>Insomnia:</strong> Create → Import from → File → 选择YAML文件</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="guide-item">
+                            <div class="guide-icon">📦</div>
+                            <div class="guide-content">
+                                <h5>导入 纯文档 (ZIP)</h5>
+                                <p>解压ZIP文件后，可以：</p>
+                                <ul>
+                                    <li><strong>查看文档:</strong> 直接打开MD文件查看API使用说明</li>
+                                    <li><strong>导入知识库:</strong> 将MD文件导入到Notion、Obsidian等知识管理工具</li>
+                                    <li><strong>团队分享:</strong> 将文档分享给团队成员作为API使用参考</li>
+                                    <li><strong>本地存档:</strong> 作为API文档的本地备份和离线查看</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <h3>❌ 处理出错</h3>
+                <div class="error-message" id="errorMessage"></div>
+                <button id="retryBtn" class="btn-secondary">重试</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>基于现有代码: 
+                <a href="../merge_by_directory_generate_fixed.py">目录分类</a> | 
+                <a href="../convert_to_postman.py">YAML解析</a> | 
+                <a href="../merge_all_directories_fixed.py">文件合并</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="static/js/app.js"></script>
+</body>
+</html>

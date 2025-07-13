@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  apifox-tool:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apifox-api-tool
+    ports:
+      - "5000:5000"
+    volumes:
+      # 挂载数据目录，保持数据持久化
+      - ./data:/app/data
+      # 挂载静态文件目录（可选，用于开发时实时更新）
+      - ./static:/app/static
+      # 挂载模板目录（可选）
+      - ./templates:/app/templates
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=production
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    networks:
+      - apifox-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  apifox-network:
+    driver: bridge
+
+volumes:
+  apifox-data:
+    driver: local
