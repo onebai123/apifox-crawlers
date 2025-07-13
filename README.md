@@ -2,6 +2,12 @@
 
 这是一个独立的Web应用程序，用于自动抓取API文档网站的内容，下载markdown文件，并通过三阶段处理流程转换为适合导入Apifox的YAML格式文件。
 
+
+## 运行截图
+
+<img width="910" height="824" alt="image" src="https://github.com/user-attachments/assets/86a5487a-0ed9-4a42-81be-9f5c0228e90a" />
+<img width="716" height="765" alt="image" src="https://github.com/user-attachments/assets/19f0c5a5-3bae-4814-aa23-f7a06abc680d" />
+
 ## 功能特性
 
 - 🌐 **Web界面操作** - 简洁的HTML界面，输入API文档URL即可开始处理
@@ -59,30 +65,6 @@ apifox/
 - 生成符合OpenAPI 3.1.0规范的最终文件
 - 保存到`data/final/`目录
 
-## 参考代码说明
-
-本项目复用了现有成功项目的核心逻辑：
-
-### 阶段2处理逻辑参考
-- **参考文件**: `convert_to_postman.py`
-- **核心函数**: 
-  - `extract_api_info_from_yml()` - YAML信息提取
-  - `extract_paths_details()` - 路径详情解析
-- **应用位置**: `utils/processor.py` 的 `_extract_yaml_from_md()` 方法
-
-### 阶段3合并逻辑参考
-- **参考文件**: `merge_all_directories_fixed.py`
-- **核心函数**:
-  - `extract_yaml_from_md()` - YAML提取
-  - `parse_yaml_content_simple()` - YAML解析
-- **应用位置**: `utils/processor.py` 的 `stage3_merge_final()` 方法
-
-### 分类算法参考
-- **参考文件**: `merge_by_directory_generate_fixed.py`
-- **核心函数**:
-  - `get_directory_mapping()` - 目录映射关系
-  - `categorize_by_directory()` - 目录分类逻辑
-- **应用位置**: `utils/processor.py` 的 `_categorize_by_directory()` 方法
 
 ## 快速启动
 
