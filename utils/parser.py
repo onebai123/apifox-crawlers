@@ -289,7 +289,7 @@ if __name__ == "__main__":
     # 测试代码
     import time
     
-    parser = LlmsParser("https://api-gpt-ge.apifox.cn")
+    parser = LlmsParser("https://https://doubao.apifox.cn/")
     
     # 测试解析示例内容
     test_content = """

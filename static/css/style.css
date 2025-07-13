@@ -17,6 +17,56 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+}
+
+/* GitHub角标样式 */
+.github-corner {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.github-corner a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.github-corner a:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.github-corner i {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.github-corner a:hover i {
+    color: #000;
+}
+
+.github-corner span {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.github-corner a:hover span {
+    color: #000;
 }
 
 /* 头部样式 */
@@ -328,11 +378,22 @@ footer {
 
 footer a {
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 footer a:hover {
-    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+footer a i {
+    font-size: 14px;
 }
 
 /* 步骤预览区域 */

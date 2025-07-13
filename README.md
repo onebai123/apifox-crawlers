@@ -1,6 +1,9 @@
+# 前言
+  - https://apifox.com/apihub/ 官方的收录的接口挺多的，微信api\openai api文档，想自己调试又没权限，写个工具抓了吧，导入到本地调试！
+
 # Apifox API文档自动抓取工具
 
-这是一个独立的Web应用程序，用于自动抓取API文档网站的内容，下载markdown文件，并通过三阶段处理流程转换为适合导入Apifox的YAML格式文件。
+这是一个独立的Web应用程序，用于自动抓取API文档网站的内容，下载markdown文件，并通过三阶段处理流程转换为适合导入Api   fox的YAML格式文件。
 
 
 ## 运行截图
@@ -102,7 +105,7 @@ docker-compose down
 ```
 
 ### 使用步骤
-1. 在输入框中输入API文档URL（如：`https://api-gpt-ge.apifox.cn/`）
+1. 在输入框中输入API文档URL（如：`https://https://doubao.apifox.cn//`）
 2. 点击"开始处理"按钮
 3. 观察实时进度显示
 4. 处理完成后，在`data/final/`目录中获取最终的YAML文件
@@ -111,7 +114,7 @@ docker-compose down
 
 ### POST /api/start
 开始处理API文档
-- **参数**: `{"url": "https://api-gpt-ge.apifox.cn/"}`
+- **参数**: `{"url": "https://https://doubao.apifox.cn//"}`
 - **返回**: `{"task_id": "uuid", "status": "started"}`
 
 ### GET /api/progress/{task_id}

@@ -261,7 +261,7 @@ class ApiDownloader:
 
 if __name__ == "__main__":
     # 测试代码
-    downloader = ApiDownloader("https://api-gpt-ge.apifox.cn", "test_output")
+    downloader = ApiDownloader("https://https://doubao.apifox.cn/", "test_output")
     
     try:
         # 测试下载llms.txt
